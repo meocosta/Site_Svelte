@@ -5,7 +5,7 @@
   import Cards from "./components/Cards.svelte";
   import Text from "./components/Text.svelte";
   import Texttwo from "./components/Texttwo.svelte";
-  import Aba from "./components/abas.svelte";
+  import Aba from "./components/Abas.svelte";
 
   let language = $state({ value: "en-us" as Language });
 
@@ -55,8 +55,6 @@
         <Text
           text={t("intro.sub", language.value)}
           speed={50}
-          size={600}
-          font={1}
           repeat={2}
           separator=" • "
         />
@@ -138,26 +136,12 @@
 
 <style lang="scss">
   #quem-somos {
-    display: grid;
-    grid-template-columns: auto auto auto;
     align-items: center;
-    gap: 5vw;
-    min-height: 30vh;
     background-color: black;
-    padding: 5vh 0vw;
     flex-shrink: 0;
     font-family: "Righteous", sans-serif;
     white-space: pre-wrap;
     color: #fca311;
-    font-size: 1.5vw;
-
-    h1{
-      font-size: 5vw;
-    }
-
-    div {
-      width: 25vw;
-    }
   }
 
   #abas {
@@ -165,10 +149,8 @@
     flex-direction: row;
     justify-content: space-around;
     gap: 0vw;
-    padding: 10vh 0vw;
 
     div {
-      top: -5vh;
       position: relative;
       z-index: 0;
       transition: top 600ms ease;
@@ -176,7 +158,6 @@
     }
 
     .ativa {
-      top: 10vh;
       z-index: 1;
       opacity: 100%;
     }
@@ -237,7 +218,6 @@
     width: 100%;
     height: 100vh;
     height: 100dvh;
-    min-height: 420px;
     flex-direction: column;
     overflow-x: hidden;
     overflow-y: auto;
@@ -298,7 +278,6 @@
     z-index: 2;
     margin: 0;
     font-family: "Righteous", sans-serif;
-    font-size: clamp(2rem, 4vw, 4.5rem);
     font-weight: 400;
     letter-spacing: 0.08em;
     line-height: 1;
@@ -310,26 +289,11 @@
     font-family: "Sora", sans-serif;
   }
 
-  .cards-section {
-    padding: clamp(2rem, 5vw, 4rem) 0;
-  }
-
-  .cards-grid {
-    display: grid;
-    width: min(1120px, calc(100% - 3rem));
-    margin: 0 auto;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(1rem, 2vw, 1.5rem);
-  }
-
   .textos {
     display: flex;
-    min-height: 25vh;
     align-items: center;
     justify-content: center;
     font-family: "Righteous", sans-serif;
-    font-size: 3vw;
-    padding: 10vh 10vw;
     text-align: center;
   }
 
@@ -345,42 +309,281 @@
     font-size: 0.8rem;
     text-align: center;
   }
+  /*computador*/
+  @media (min-aspect-ratio: 1) {
+    #quem-somos {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      gap: 5vw;
+      min-height: 30vh;
+      padding: 5vh 0vw;
+      font-size: 1.5vw;
 
-  @media (max-width: 900px) {
-    .cards-grid {
-      width: min(720px, calc(100% - 2rem));
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      h1 {
+        font-size: 5vw;
+      }
+
+      div {
+        width: 25vw;
+      }
     }
 
-    .intro__title {
-      font-size: clamp(2.4rem, 7vw, 4rem);
-    }
-  }
+    #abas {
+      padding: 10vh 0vw;
 
-  @media (max-width: 600px) {
+      div {
+        top: -5vh;
+      }
+
+      .ativa {
+        top: 10vh;
+      }
+    }
+
+    #segunda {
+      margin-left: -20vw;
+    }
+
+    #intro {
+      position: relative;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .language-picker {
+      position: fixed;
+      top: 2vh;
+      left: 2vw;
+      z-index: 1100;
+    }
+
     .language-picker select {
-      min-height: 36px;
-      padding: 0.45rem 1.7rem 0.45rem 0.7rem;
-      font-size: 0.8rem;
+      min-height: 40px;
+      padding: 0.55rem 2rem 0.55rem 0.85rem;
+      font-size: 0.9rem;
     }
 
     .intro__title {
-      top: 5.5rem;
-      font-size: clamp(2rem, 10vw, 3rem);
-      letter-spacing: 0.05em;
+      font-size: clamp(2rem, 4vw, 4.5rem);
+    }
+
+    .cards-section {
+      padding: clamp(2rem, 5vw, 4rem) 0;
     }
 
     .cards-grid {
-      width: calc(100% - 2rem);
-      grid-template-columns: 1fr;
+      display: grid;
+      width: min(1120px, calc(100% - 3rem));
+      margin: 0 auto;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1rem, 2vw, 1.5rem);
     }
 
     .textos {
-      min-height: auto;
-      flex-direction: column;
-      gap: 1.5rem;
-      padding: 2rem 1rem 3rem;
-      text-align: center;
+      font-size: 3vw;
+      padding: 10vh 10vw;
     }
   }
+
+  /*tablet*/
+  @media (max-aspect-ratio: 1) and (min-aspect-ratio: 0.61) {
+    #quem-somos {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 5vh 0vw;
+      font-size: 4vw;
+
+      h1 {
+        font-size: 10vw;
+        margin: 5vh 10vw;
+      }
+    }
+
+    #abas {
+      padding: 12vh 0vw;
+
+      div {
+        top: -10vh;
+      }
+
+      .ativa {
+        top: 5vh;
+      }
+    }
+
+    #segunda {
+      margin-left: -60vw;
+    }
+
+    #intro {
+      position: relative;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .language-picker select {
+      min-height: 40px;
+      padding: 0.55rem 2rem 0.55rem 0.85rem;
+      font-size: 2vw;
+    }
+
+
+    .intro__title {
+      font-size: 11vw;
+    }
+
+    .cards-section {
+      padding: clamp(2rem, 5vw, 4rem) 0;
+    }
+
+    .cards-grid {
+      display: flex;
+      height: fit-content;
+      gap: 5vh;
+      justify-content: space-around;
+      flex-direction: column;
+      width: 90vw;
+    }
+
+    .textos {
+      font-size: 4vw;
+      padding: 3vh 10vw;
+    }
+  }
+
+  /*tablet2*/
+  @media (max-aspect-ratio: 0.61) and (min-aspect-ratio: 0.50) {
+    #quem-somos {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 5vh 0vw;
+      font-size: 5vw;
+
+      h1 {
+        font-size: 6vw;
+        margin: 2vh 10vw;
+      }
+    }
+
+    #abas {
+      padding: 12vh 0vw;
+
+      div {
+        top: -10vh;
+      }
+
+      .ativa {
+        top: 5vh;
+      }
+    }
+
+    #segunda {
+      margin-left: -80vw;
+    }
+
+    #intro {
+      position: relative;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .language-picker select {
+      min-height: 40px;
+      padding: 0.55rem 2rem 0.55rem 0.85rem;
+      font-size: 3vw;
+    }
+
+
+    .intro__title {
+      font-size: 11vw;
+    }
+
+    .cards-section {
+      padding: clamp(2rem, 5vw, 4rem) 0;
+    }
+
+    .cards-grid {
+      display: flex;
+      height: fit-content;
+      gap: 4vh;
+      justify-content: space-around;
+      flex-direction: column;
+      width: 90vw;
+    }
+
+    .textos {
+      font-size: 5vw;
+      padding: 3vh 10vw;
+    }
+  }
+
+   /*celular*/
+  @media (max-aspect-ratio: 0.5) {
+    #quem-somos {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 5vh 0vw;
+      font-size: 5vw;
+
+      h1 {
+        font-size: 6vw;
+        margin: 2vh 10vw;
+      }
+    }
+
+    #abas {
+      padding: 9vh 0vw;
+
+      div {
+        top: -10vh;
+      }
+
+      .ativa {
+        top: 5vh;
+      }
+    }
+
+    #segunda {
+      margin-left: -80vw;
+    }
+
+    #intro {
+      position: relative;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .language-picker select {
+      min-height: 40px;
+      padding: 0.55rem 2rem 0.55rem 0.85rem;
+      font-size: 3vw;
+    }
+
+
+    .intro__title {
+      font-size: 11vw;
+    }
+
+    .cards-section {
+      padding: clamp(2rem, 5vw, 4rem) 0;
+    }
+
+    .cards-grid {
+      display: flex;
+      height: fit-content;
+      gap: 4vh;
+      justify-content: space-around;
+      flex-direction: column;
+      width: 90vw;
+    }
+
+    .textos {
+      font-size: 5vw;
+      padding: 3vh 10vw;
+    }
+  }
+
 </style>
