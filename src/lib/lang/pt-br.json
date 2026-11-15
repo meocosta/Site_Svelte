@@ -7,7 +7,7 @@
 		"physicist": "Físico",
 		"elisa": "Maria Elisa",
 		"thais": "Thaís Alexandre",
-		"will": "Will",
+		"will": "Wildenbergue Jr",
 		"gustavo": "Gustavo Enrico"
 	},
 	"intro": {
@@ -27,13 +27,36 @@
 			"text": "Protocolos passo a passo de ultrassom e emergência ajudam tripulantes sem formação médica a agir com confiança e sem sobrecarga cognitiva."
 		}
 	},
+	"cards2": {
+		"card_1": {
+			"title": "Engajamento e registros inteligentes",
+			"text": "Check-ins rápidos, acionados após o sono ou exercícios, e testes gamificados de atenção e cognição incentivam registros frequentes. Em troca, a tripulação recebe seu Índice de Prontidão personalizado."
+		},
+		"card_2": {
+			"title": "Triagem preditiva e linha de base dinâmica",
+			"text": "A análise combina dados de dispositivos vestíveis, sensores da cabine e sintomas relatados com o padrão individual de cada astronauta, ajudando a evitar alertas falsos causados pela adaptação normal à microgravidade."
+		},
+		"wellbeing": {
+			"title": "IA de voz e modo autônomo de emergência",
+			"text": "A interface de voz permite acionar a triagem e seguir protocolos médicos passo a passo sem usar as mãos, inclusive durante o atendimento a uma emergência em microgravidade."
+		}
+	},
 	"terceiraseção": {
-		"text1": "Além da órbita baixa da Terra, a latência de comunicação pode impedir a telemedicina em tempo real com equipes em solo.",
-		"text2": "O AstroCare promove a autonomia dos astronautas em missões longas, incluindo a Artemis e futuras explorações de Marte.",
-		"text3": "Desenvolvido pela BioShield Space, equipe interdisciplinar de medicina de emergência, física médica, design de experiência e engenharia de software."
+		"text1" : "Em missões à Lua e a Marte, atrasos e interrupções na comunicação podem limitar o apoio da Terra. A microgravidade, a radiação e o confinamento também alteram os parâmetros de saúde dos astronautas e dificultam o monitoramento e o atendimento de emergências, como SANS, parada cardíaca ou crises comportamentais — sobretudo sem profissionais de saúde a bordo.",
+		"text2": "Além da órbita baixa da Terra, a latência de comunicação pode impedir a telemedicina em tempo real com equipes em solo.",
+		"text3": "O AstroCare promove a autonomia dos astronautas em missões longas, incluindo a Artemis e futuras explorações de Marte.",
+		"text4": "Desenvolvido pela BioShield Space, equipe interdisciplinar de medicina de emergência, física médica, design de experiência e engenharia de software.",
+		"text5": "Arquitetura local e pronta para processamento na borda: o AstroCare funciona a bordo da espaçonave ou habitat, incluindo reconhecimento de voz e fluxos clínicos, permitindo processar dados biométricos imediatamente e apoiar decisões durante interrupções na comunicação.",
+		"text6": "UX de baixa carga cognitiva para microgravidade: o modo de emergência apresenta uma ação crítica por vez, com alvos de toque grandes, metrônomos para RCP e verificações de segurança. Isso reduz a poluição visual e o excesso de alertas, incluindo checagem de contraindicações antes da trombólise e alertas de cálculos renais ao usar acetazolamida para SANS.",
+		"text7": "Integração entre tripulação e espaçonave (ECLSS): o AstroCare avalia a saúde da tripulação junto aos dados da cabine, verificando ppCO2 e radiação antes de classificar dores de cabeça ou agitação como condições neurológicas ou psiquiátricas primárias.",
+		"text8": "Atuação multidisciplinar: conhecimentos de medicina de emergência, ciência da computação e UX orientam recursos que reduzem a carga cognitiva da tripulação e respondem a desafios médicos reais do voo espacial."
 	},
 	"aba": {
 		"text1": "Em microgravidade, a redistribuição de fluidos e as alterações cardiovasculares podem modificar os parâmetros fisiológicos observados na Terra. O acompanhamento especializado, ajustado a referências próprias do ambiente espacial, ajuda a distinguir adaptações esperadas de sinais que exigem avaliação clínica.",
 		"text2": "A exposição à radiação ionizante e o atraso na comunicação com equipes médicas em solo tornam essencial o suporte clínico a bordo. Protocolos guiados de ultrassom e emergência ajudam a tripulação a coletar informações, avaliar riscos e agir com segurança quando a assistência especializada não está imediatamente disponível."
+	},
+	"aba2": {
+		"text1": "Fundamentado em padrões médicos e de engenharia oficiais da NASA: o AstroCare substitui parâmetros clínicos terrestres por protocolos validados para o espaço, baseados na NASA-STD-3001, nas Medidas Padrão de Voos Espaciais do HRP, no conjunto de pesquisas ARCHeR (Artemis II) e nas listas de verificação de emergência do Grupo Médico Integrado da ISS (IMG).",
+		"text2": "IA de voz treinada com chamadas de emergência e diretrizes para microgravidade: em emergências de gravidade zero, os astronautas muitas vezes não podem segurar um tablet enquanto contêm fisicamente um paciente, realizam ultrassom ou RCP. Nosso assistente de voz offline reconhece sinais críticos de emergência e fornece orientações clínicas faladas, passo a passo, adaptadas às limitações da microgravidade."
 	}
 }

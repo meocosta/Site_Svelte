@@ -10,8 +10,15 @@
   let language = $state({ value: "en-us" as Language });
 
   const cardKeys = ["monitoring", "research", "wellbeing"];
-  const textosMessages = ["text1", "text2", "text3"];
+  const cardKeys2 = ["card_1", "card_2", "wellbeing"];
+  const textosMessages1 = ["text1", "text2"];
+  const textosMessages2 = ["text3", "text4"];
+  const textosMessages3 = ["text5", "text6"];
+  const textosMessages4 = ["text7", "text8"];
   let textosIndex = $state(0);
+  let textosIndex2 = $state(0);
+  let textosIndex3 = $state(0);
+  let textosIndex4 = $state(0);
   let activeTab = $state(0);
 
   function activateNextTab() {
@@ -20,7 +27,10 @@
 
   onMount(() => {
     const interval = window.setInterval(() => {
-      textosIndex = (textosIndex + 1) % textosMessages.length;
+      textosIndex = (textosIndex + 1) % textosMessages1.length;
+      textosIndex2 = (textosIndex + 1) % textosMessages2.length;
+      textosIndex3 = (textosIndex + 1) % textosMessages3.length;
+      textosIndex4 = (textosIndex + 1) % textosMessages4.length;
     }, 7000);
     const tabInterval = window.setInterval(activateNextTab, 10000);
 
@@ -61,12 +71,6 @@
       </div>
     </section>
 
-    <section class="textos">
-      <p>
-        {t(`terceiraseção.text1`, language.value)}
-      </p>
-    </section>
-
     <section class="cards-section" aria-label="BioShield highlights">
       <div class="cards-grid">
         {#each cardKeys as key}
@@ -80,7 +84,7 @@
 
     <section class="textos">
       <p>
-        {t(`terceiraseção.text2`, language.value)}
+        {t(`terceiraseção.${textosMessages1[textosIndex]}`, language.value)}
       </p>
     </section>
 
@@ -95,7 +99,24 @@
 
     <section class="textos">
       <p>
-        {t(`terceiraseção.text3`, language.value)}
+        {t(`terceiraseção.${textosMessages2[textosIndex2]}`, language.value)}
+      </p>
+    </section>>
+
+    <section class="cards-section" aria-label="BioShield highlights">
+      <div class="cards-grid">
+        {#each cardKeys2 as key}
+          <Cards
+            titulo={t(`cards2.${key}.title`, language.value)}
+            text={t(`cards2.${key}.text`, language.value)}
+          />
+        {/each}
+      </div>
+    </section>
+
+    <section class="textos">
+      <p>
+        {t(`terceiraseção.${textosMessages3[textosIndex3]}`, language.value)}
       </p>
     </section>
 
@@ -126,10 +147,46 @@
         />
       </div>
     </section>
+
+    <section class="textos">
+      <p>
+        {t(`terceiraseção.${textosMessages4[textosIndex4]}`, language.value)}
+      </p>
+    </section>
+
+    <section id="abas2">
+      <div class:ativa={activeTab === 0}>
+        <Aba text={t("aba2.text1", language.value)} />
+      </div>
+      <div id="segunda" class:ativa={activeTab === 1}>
+        <Aba text={t("aba2.text2", language.value)} />
+      </div>
+    </section>
+
     <footer class="site-footer">
-      <small
-        >© {new Date().getFullYear()} BioShield Space. All rights reserved.</small
-      >
+      <small>© {new Date().getFullYear()} BioShield Space. All rights reserved.</small>
+      <section class="references" aria-labelledby="references-title">
+        <h2 id="references-title">Clinical &amp; Aerospace References</h2>
+        <ol>
+          <li>NASA-STD-3001 Vol. 1 &amp; 2: Space Flight Human-System Standard (NASA OCHMO).</li>
+          <li>NASA HRP Evidence Reports: SANS (Brunstetter et al.) &amp; Adverse Cognitive/Behavioral Conditions and Psychiatric Disorders (Slack et al.).</li>
+          <li>NASA ExMC Exploration Medical Conditions List (EMCL) &amp; ISS Integrated Medical Group (IMG) Medical Checklist.</li>
+          <li>NASA HRP Spaceflight Standard Measures &amp; ARCHeR (Artemis Research for Crew Health and Readiness).</li>
+          <li>Hinkelbein, J., et al. (2020). Cardiopulmonary resuscitation (CPR) during spaceflight – a guideline for CPR in microgravity. Scand J Trauma Resusc Emerg Med, 28(1), 108.</li>
+          <li>Lee, A. G., et al. (2020). Spaceflight associated neuro-ocular syndrome (SANS) and the neuro-ophthalmologic effects of microgravity. npj Microgravity, 6, 7.</li>
+          <li>Basner, M., et al. (2015). Development and validation of the Cognition test battery for spaceflight. Aerosp Med Hum Perform, 86(11), 942–952.</li>
+          <li>Sharma T, Peng M, Curry S, Liu Y, Lohawala H, Sharma G. “The ex vivo human translaminar autonomous system to study spaceflight associated neuro-ocular syndrome pathogenesis (Retina, RT-PCR and electroretinography)”, NASA Open Science Data Repository, Version 1.</li>
+          <li>Evetts SN, Evetts LM, Russomano T, Castro JC, Ernsting J. Basic life support in microgravity: evaluation of a novel method during parabolic flight. Aviat Space Environ Med. 2005 May;76(5):506-10. PMID: 15892553.</li>
+          <li>Hinkelbein J, Kerkhoff S, Adler C, Ahlbäck A, Braunecker S, Burgard D, Cirillo F, De Robertis E, Glaser E, Haidl TK, Hodkinson P, Iovino IZ, Jansen S, Johnson KVL, Jünger S, Komorowski M, Leary M, Mackaill C, Nagrebetsky S, Neuhaus C, Rehnberg L, Romano GM, Russomano T, Schmitz J, Spelten O, Starck C, Thierry S, Velho R, Warnecke T. Cardiopulmonary resuscitation (CPR) during spaceflight - a guideline for CPR in microgravity from the German Society of Aerospace Medicine (DGLRM) and the European Society of Aerospace Medicine Space Medicine Group (ESAM-SMG). Scand J Trauma Resusc Emerg Med. 2020 Nov 2;28(1):108.</li>
+          <li>Mader TH, Gibson CR, Pass AF, Kramer LA, Lee AG, Fogarty J, Tarver WJ, Dervay JP, Hamilton DR, Sargsyan A, Phillips JL, Tran D, Lipsky W, Choi J, Stern C, Kuyumjian R, Polk JD. Optic disc edema, globe flattening, choroidal folds, and hyperopic shifts observed in astronauts after long-duration space flight. Ophthalmology. 2011 Oct;118(10):2058-69.</li>
+          <li>Stenger MB, Tarver WJ, Brunstetter T, et al. Evidence Report: Risk of Spaceflight Associated Neuro-ocular Syndrome (SANS). Houston, TX: NASA Lyndon B. Johnson Space Center, Human Research Program; 2017 Nov. Report No.: 20180000936. Available from: <a href="https://ntrs.nasa.gov/api/citations/20180000936/downloads/20180000936.pdf" target="_blank" rel="noreferrer">NASA Technical Reports Server</a>.</li>
+          <li>Kanas, Nick &amp; Manzey, Dietrich. (2008). Space Psychology and Psychiatry. 10.1007/978-1-4020-6770-9.</li>
+          <li>Lee AG, Mader TH, Gibson CR, Tarver W, Rabiei P, Riascos RF, Galdamez LA, Brunstetter T. Spaceflight associated neuro-ocular syndrome (SANS) and the neuro-ophthalmologic effects of microgravity: a review and an update. NPJ Microgravity. 2020 Feb 7;6:7.</li>
+          <li>National Aeronautics and Space Administration (NASA). (n.d.). Central Nervous System, Behavioral Health, and Sensorimotor (CBS) Integrated Research Plan Problem Statement. NASA Human Research Program (HRP), Human Research Roadmap, Lyndon B. Johnson Space Center. <a href="https://humanresearchroadmap.nasa.gov/Evidence/other/Central%20Nervous%20System,%20Behavioral%20Health,%20and%20Sensorimotor%20(CBS)%20Integrated%20Research%20Plan%20Problem%20Statement.pdf" target="_blank" rel="noreferrer">NASA Human Research Roadmap</a>.</li>
+          <li>Basner M, Savitt A, Moore TM, Port AM, McGuire S, Ecker AJ, Nasrini J, Mollicone DJ, Mott CM, McCann T, Dinges DF, Gur RC. Development and Validation of the Cognition Test Battery for Spaceflight. Aerosp Med Hum Perform. 2015 Nov;86(11):942-52.</li>
+          <li>Blue, R., Nusbaum, D., &amp; Antonsen, E. (2019). Development of an Accepted Medical Condition List for Exploration Medical Capability Scoping (NASA Technical Memorandum No. NASA/TM-2019-220299; NTRS ID: 20190027540). National Aeronautics and Space Administration, Lyndon B. Johnson Space Center. <a href="https://ntrs.nasa.gov/citations/20190027540" target="_blank" rel="noreferrer">NASA Technical Reports Server</a>.</li>
+        </ol>
+      </section>
     </footer>
   </section>
 </section>
@@ -144,7 +201,8 @@
     color: #fca311;
   }
 
-  #abas {
+  #abas,
+  #abas2 {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -293,21 +351,50 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+    flex-shrink: 0;
     font-family: "Righteous", sans-serif;
     text-align: center;
+    height: 70vh;
   }
 
   .site-footer {
     display: flex;
-    min-height: 64px;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 1rem;
+    gap: 1.5rem;
+    padding: 1.5rem clamp(1rem, 5vw, 4rem);
     border-top: 1px solid rgb(255 255 255 / 12%);
     color: rgb(255 255 255 / 65%);
     font-family: "Sora", sans-serif;
     font-size: 0.8rem;
     text-align: center;
+    background-color: black;
+  }
+
+  .references {
+    width: min(100%, 1100px);
+    text-align: left;
+    color: rgb(255 255 255 / 65%);
+
+    h2 {
+      margin: 0 0 1rem;
+      font-size: 1rem;
+      text-align: justify;
+    }
+
+    ol {
+      display: grid;
+      gap: 0.65rem;
+      margin: 0;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      padding-left: 0.25rem;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
   }
   /*computador*/
   @media (min-aspect-ratio: 1) {
@@ -328,7 +415,8 @@
       }
     }
 
-    #abas {
+    #abas,
+    #abas2 {
       padding: 10vh 0vw;
 
       div {
@@ -400,7 +488,8 @@
       }
     }
 
-    #abas {
+    #abas,
+    #abas2 {
       padding: 12vh 0vw;
 
       div {
@@ -467,7 +556,8 @@
       }
     }
 
-    #abas {
+    #abas,
+    #abas2 {
       padding: 12vh 0vw;
 
       div {
@@ -534,7 +624,8 @@
       }
     }
 
-    #abas {
+    #abas,
+    #abas2 {
       padding: 9vh 0vw;
 
       div {

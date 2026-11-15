@@ -7,7 +7,7 @@
 		"physicist": "Physicist",
 		"elisa": "Maria Elisa",
 		"thais": "Thaís Alexandre",
-		"will": "Will",
+		"will": "Wildenbergue Jr",
 		"gustavo": "Gustavo Enrico"
 	},
 	"intro": {
@@ -27,13 +27,36 @@
 			"text": "Step-by-step ultrasound and emergency protocols help non-physician crew members respond confidently without cognitive overload."
 		}
 	},
+	"cards2": {
+		"card_1": {
+			"title": "Smart Engagement & Active Logging (Data-Back Loop)",
+			"text": "Instead of burdensome forms, AstroCare uses context-triggered micro-check-ins (< 45 seconds, automatically prompted post-sleep or post-Orion Flywheel workout) and gamifies daily neurobehavioral testing (PVT / Cognition). In return for logging, astronauts immediately receive their personalized Crew Readiness Index, turning mandatory data collection into actionable daily feedback for the crew."
+		},
+		"card_2": {
+			"title": "Predictive Triage & Dynamic Baseline Engine:",
+			"text": "Our edge-ready analytics engine cross-references continuous wearable telemetry (HRV, sleep architecture, resting HR), cabin environmental sensors (ppCO2, HERA/CAD radiation dosimetry), and subjective symptom logs against a dynamic individual baseline—preventing false alarms caused by normal microgravity adaptation."
+		},
+		"wellbeing": {
+			"title": "Hands-Free Voice AI & Autonomous Emergency Mode:",
+			"text": "Trained on primary astronaut distress calls and microgravity emergency medical guidelines, AstroCare’s onboard voice interface allows crew members to trigger urgent triage and navigate step-by-step zero-gravity clinical protocols completely hands-free while stabilizing a patient or floating in the cabin."
+		}
+	},
 	"terceiraseção": {
-		"text1": "Beyond Low Earth Orbit, communication delays can make real-time telemedicine from Earth unavailable.",
-		"text2": "AstroCare supports astronaut autonomy during long-duration missions, including Artemis and future exploration of Mars.",
-		"text3": "Developed by BioShield Space, an interdisciplinary team in emergency medicine, medical physics, UX design, and software engineering."
+		"text1" : "On missions to the Moon and Mars, communication delays and outages can limit support from Earth. Microgravity, radiation, and confinement also change astronauts’ health baselines and complicate routine monitoring and emergencies such as SANS, cardiac arrest, or behavioral crises—especially without onboard clinicians.",
+		"text2": "Beyond Low Earth Orbit, communication delays can make real-time telemedicine from Earth unavailable.",
+		"text3": "AstroCare supports astronaut autonomy during long-duration missions, including Artemis and future exploration of Mars.",
+		"text4": "Developed by BioShield Space, an interdisciplinary team in emergency medicine, medical physics, UX design, and software engineering.",
+		"text5": "Offline-First & Edge-Ready Architecture: AstroCare runs locally aboard the spacecraft or habitat, including speech recognition and clinical workflows, enabling immediate biometric processing and decision support during communication blackouts.",
+		"text6": "Low-Cognitive-Load UX for Microgravity: Emergency Mode presents one critical action at a time with large touch targets, CPR metronomes, and safety checks to reduce visual clutter and alarm fatigue, including contraindication checks before thrombolysis and kidney-stone alerts when using acetazolamide for SANS.",
+		"text7": "Crew–Spacecraft (ECLSS) Correlation: AstroCare assesses crew health alongside cabin data, checking ppCO2 and radiation before treating headaches or agitation as primary neurological or psychiatric conditions.",
+		"text8": "Multidisciplinary Execution: Emergency medicine, computer science, and UX design expertise shape features that reduce crew cognitive load and address real medical challenges in spaceflight."
 	},
 	"aba": {
 		"text1": "In microgravity, fluid shifts and cardiovascular changes can alter physiological measurements compared with Earth-based norms. Specialized monitoring calibrated to spaceflight baselines helps distinguish expected adaptation from changes that may require clinical assessment.",
 		"text2": "Exposure to ionizing radiation and communication delays with medical teams on Earth make onboard clinical support essential. Guided ultrasound and emergency protocols help crew members gather information, assess risk, and act safely when expert care is not immediately available."
+	},
+	"aba2": {
+		"text1": "Grounded in Official NASA Medical & Engineering Standards: AstroCare replaces terrestrial clinical thresholds with space-validated protocols derived from NASA-STD-3001, HRP Spaceflight Standard Measures, the ARCHeR (Artemis II) research suite, and ISS Integrated Medical Group (IMG) emergency checklists.",
+		"text2": "Voice AI Trained on Distress Calls & Microgravity Emergency Guidelines: In zero-gravity emergencies, astronauts often cannot hold a tablet while performing physical restraint, ultrasound, or CPR. Our offline voice assistant recognizes critical distress triggers and delivers spoken, step-by-step clinical guidance explicitly adapted to microgravity constraints."
 	}
 }
