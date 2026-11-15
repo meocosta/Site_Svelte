@@ -49,12 +49,15 @@
     <select
       aria-label="Choose language / Escolha o idioma"
       value={language.value}
-      onchange={(event) =>
-        (language.value = event.currentTarget.value as Language)}
+      onchange={(event) => {
+        language.value = event.currentTarget.value as Language;
+      }}
     >
       <option value="en-us">EN</option>
       <option value="pt-br">PT</option>
     </select>
+
+    <a href="/docs">Docs</a>
   </label>
 
   <section id="view" data-custom-scroll>
@@ -101,7 +104,7 @@
       <p>
         {t(`terceiraseção.${textosMessages2[textosIndex2]}`, language.value)}
       </p>
-    </section>>
+    </section>
 
     <section class="cards-section" aria-label="BioShield highlights">
       <div class="cards-grid">
@@ -293,6 +296,7 @@
     text-align: center;
   }
 
+
   .language-picker {
     position: fixed;
     top: 2vh;
@@ -300,7 +304,7 @@
     z-index: 1100;
   }
 
-  .language-picker select {
+  .language-picker select, a {
     min-height: 40px;
     padding: 0.55rem 2rem 0.55rem 0.85rem;
     border: 1px solid rgb(255 255 255 / 28%);
