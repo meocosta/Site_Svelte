@@ -41,8 +41,8 @@
   }
   .seal {
     position: relative;
-    width: 600px;
-    height: 600px;
+    width: 650px;
+    height: 650px;
     border-radius: 100%;
     animation: rotation var(--speed) linear infinite;
     font-size: 1.5vw;
