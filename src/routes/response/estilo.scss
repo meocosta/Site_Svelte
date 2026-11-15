@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sora:wght@100..800&display=swap');
+
+/* Global page defaults and background */
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background-color: #050a12;
+  background-image: url('../../lib/assets/earth.jpg');
+  background-position: center 60%;
+  background-size: cover;
+  color: #fff;
+}

@@ -1,0 +1,40 @@
+
+.crt {
+    position: relative;
+    min-height: 100vh;
+    background: #101a13;
+    overflow: hidden;
+    isolation: isolate;
+
+    // Linhas horizontais
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 10;
+
+        background: repeating-linear-gradient(
+            to bottom,
+            transparent 0px,
+            rgba(0, 0, 0, 0.15) 1px,
+            transparent 2px,
+            transparent 4px
+        );
+    }
+
+    // Escurecimento das bordas
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 11;
+
+        background: radial-gradient(
+            ellipse,
+            transparent 50%,
+            rgba(0, 0, 0, 0.55) 100%
+        );
+    }
+}

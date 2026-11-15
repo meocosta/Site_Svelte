@@ -1,0 +1,39 @@
+{
+	"quem": "Quem está por trás",
+	"roles": {
+		"frontend": "Desenvolvedora Front-end",
+		"physician": "Médica com pós-graduação",
+		"backend": "Desenvolvedor Back-end",
+		"physicist": "Físico",
+		"elisa": "Maria Elisa",
+		"thais": "Thaís Alexandre",
+		"will": "Will",
+		"gustavo": "Gustavo Enrico"
+	},
+	"intro": {
+		"sub": "Autonomia clínica e inteligência radiológica para tripulações no espaço profundo"
+	},
+	"cards": {
+		"monitoring": {
+			"title": "Monitoramento adaptativo da saúde",
+			"text": "Os sinais vitais são avaliados com parâmetros adaptados à microgravidade, ajudando a tripulação a reconhecer mudanças fisiológicas relevantes."
+		},
+		"research": {
+			"title": "Dosimetria de radiação",
+			"text": "A exposição acumulada à radiação espacial é correlacionada com biomarcadores para apoiar decisões clínicas bem informadas."
+		},
+		"wellbeing": {
+			"title": "Cuidado guiado a bordo",
+			"text": "Protocolos passo a passo de ultrassom e emergência ajudam tripulantes sem formação médica a agir com confiança e sem sobrecarga cognitiva."
+		}
+	},
+	"terceiraseção": {
+		"text1": "Além da órbita baixa da Terra, a latência de comunicação pode impedir a telemedicina em tempo real com equipes em solo.",
+		"text2": "O AstroCare promove a autonomia dos astronautas em missões longas, incluindo a Artemis e futuras explorações de Marte.",
+		"text3": "Desenvolvido pela BioShield Space, equipe interdisciplinar de medicina de emergência, física médica, design de experiência e engenharia de software."
+	},
+	"aba": {
+		"text1": "Em microgravidade, a redistribuição de fluidos e as alterações cardiovasculares podem modificar os parâmetros fisiológicos observados na Terra. O acompanhamento especializado, ajustado a referências próprias do ambiente espacial, ajuda a distinguir adaptações esperadas de sinais que exigem avaliação clínica.",
+		"text2": "A exposição à radiação ionizante e o atraso na comunicação com equipes médicas em solo tornam essencial o suporte clínico a bordo. Protocolos guiados de ultrassom e emergência ajudam a tripulação a coletar informações, avaliar riscos e agir com segurança quando a assistência especializada não está imediatamente disponível."
+	}
+}

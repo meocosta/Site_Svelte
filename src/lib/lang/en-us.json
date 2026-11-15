@@ -1,0 +1,39 @@
+{
+	"quem": "Who we are",
+	"roles": {
+		"frontend": "Front-end Developer",
+		"physician": "Postgraduate-trained Physician",
+		"backend": "Back-end Developer",
+		"physicist": "Physicist",
+		"elisa": "Maria Elisa",
+		"thais": "Thaís Alexandre",
+		"will": "Will",
+		"gustavo": "Gustavo Enrico"
+	},
+	"intro": {
+		"sub": "Clinical autonomy and radiation insight for deep-space crews"
+	},
+	"cards": {
+		"monitoring": {
+			"title": "Adaptive health monitoring",
+			"text": "Vital signs are interpreted against microgravity-adapted baselines to help crews recognize meaningful physiological changes."
+		},
+		"research": {
+			"title": "Radiation dosimetry",
+			"text": "Cumulative space-radiation exposure is correlated with biological biomarkers to support informed clinical decisions."
+		},
+		"wellbeing": {
+			"title": "Guided care on board",
+			"text": "Step-by-step ultrasound and emergency protocols help non-physician crew members respond confidently without cognitive overload."
+		}
+	},
+	"terceiraseção": {
+		"text1": "Beyond Low Earth Orbit, communication delays can make real-time telemedicine from Earth unavailable.",
+		"text2": "AstroCare supports astronaut autonomy during long-duration missions, including Artemis and future exploration of Mars.",
+		"text3": "Developed by BioShield Space, an interdisciplinary team in emergency medicine, medical physics, UX design, and software engineering."
+	},
+	"aba": {
+		"text1": "In microgravity, fluid shifts and cardiovascular changes can alter physiological measurements compared with Earth-based norms. Specialized monitoring calibrated to spaceflight baselines helps distinguish expected adaptation from changes that may require clinical assessment.",
+		"text2": "Exposure to ionizing radiation and communication delays with medical teams on Earth make onboard clinical support essential. Guided ultrasound and emergency protocols help crew members gather information, assess risk, and act safely when expert care is not immediately available."
+	}
+}
