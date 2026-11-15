@@ -5,13 +5,13 @@
   import Cards from "./components/Cards.svelte";
   import Text from "./components/Text.svelte";
   import Texttwo from "./components/Texttwo.svelte";
-  import Aba from "./components/Abas.svelte";
+  import Aba from "./components/abas.svelte";
 
   let language = $state({ value: "en-us" as Language });
 
   const cardKeys = ["monitoring", "research", "wellbeing"];
-  const carouselMessages = ["text1", "text2", "text3"];
-  let carouselIndex = $state(0);
+  const textosMessages = ["text1", "text2", "text3"];
+  let textosIndex = $state(0);
   let activeTab = $state(0);
 
   function activateNextTab() {
@@ -20,7 +20,7 @@
 
   onMount(() => {
     const interval = window.setInterval(() => {
-      carouselIndex = (carouselIndex + 1) % carouselMessages.length;
+      textosIndex = (textosIndex + 1) % textosMessages.length;
     }, 7000);
     const tabInterval = window.setInterval(activateNextTab, 10000);
 
@@ -31,7 +31,9 @@
   });
 </script>
 
-<section class="crt">
+<section class="crt"></section>
+
+<section id="site">
   <label class="language-picker">
     <span class="visually-hidden">Choose language / Escolha o idioma</span>
     <select
@@ -45,11 +47,11 @@
     </select>
   </label>
 
-  <main class="response" id="site" data-custom-scroll>
-    <section class="hero">
-      <h1 class="hero__title">ASTROCARE</h1>
+  <section id="view" data-custom-scroll>
+    <section id="intro">
+      <h1 class="intro__title">ASTROCARE</h1>
 
-      <div class="hero__copy">
+      <div class="intro__copy">
         <Text
           text={t("intro.sub", language.value)}
           speed={50}
@@ -61,9 +63,9 @@
       </div>
     </section>
 
-    <section class="carousel">
-      <p class="carousel__text" aria-live="polite">
-        {t(`terceiraseção.text1`)}
+    <section class="textos">
+      <p>
+        {t(`terceiraseção.text1`, language.value)}
       </p>
     </section>
 
@@ -78,13 +80,13 @@
       </div>
     </section>
 
-    <section class="carousel">
-      <p class="carousel__text" aria-live="polite">
-        {t(`terceiraseção.text2`)}
+    <section class="textos">
+      <p>
+        {t(`terceiraseção.text2`, language.value)}
       </p>
     </section>
 
-    <section id="Abas">
+    <section id="abas">
       <div class:ativa={activeTab === 0}>
         <Aba text={t("aba.text1", language.value)} />
       </div>
@@ -93,15 +95,14 @@
       </div>
     </section>
 
-    <section class="carousel">
-      <p class="carousel__text" aria-live="polite">
-        {t(`terceiraseção.text3`)}
+    <section class="textos">
+      <p>
+        {t(`terceiraseção.text3`, language.value)}
       </p>
     </section>
 
-    <section id="Quem">
-      <h1>/* {t("quem")} */</h1>
-
+    <section id="quem-somos">
+      <div><h1>/* {t("quem", language.value)} */</h1></div>
       <div>
         <Texttwo
           names={[
@@ -113,7 +114,8 @@
           duration={900}
           interval={5000}
         />
-
+      </div>
+      <div>
         <Texttwo
           names={[
             t("roles.frontend", language.value),
@@ -126,38 +128,39 @@
         />
       </div>
     </section>
-
-
     <footer class="site-footer">
-      <small>© {new Date().getFullYear()} BioShield Space. All rights reserved.</small>
+      <small
+        >© {new Date().getFullYear()} BioShield Space. All rights reserved.</small
+      >
     </footer>
-  </main>
+  </section>
 </section>
 
 <style lang="scss">
-  #Quem {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  #quem-somos {
+    display: grid;
+    grid-template-columns: auto auto auto;
     align-items: center;
-    height: 30vh;
+    gap: 5vw;
+    min-height: 30vh;
     background-color: black;
     padding: 5vh 0vw;
     flex-shrink: 0;
     font-family: "Righteous", sans-serif;
     white-space: pre-wrap;
     color: #fca311;
-    font-size: 2vw;
+    font-size: 1.5vw;
+
+    h1{
+      font-size: 5vw;
+    }
 
     div {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      width: 100%;
+      width: 25vw;
     }
   }
 
-  #Abas {
+  #abas {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -184,8 +187,10 @@
   }
 
   .crt {
-    position: relative;
+    position: absolute;
+    z-index: -1;
     min-height: 100vh;
+    min-width: 100vw;
     background: #101a1300;
     overflow: hidden;
     isolation: isolate;
@@ -221,6 +226,35 @@
     }
   }
 
+  #site {
+    background-color: rgba(0, 0, 0, 0.466);
+  }
+
+  #view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 420px;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  #intro {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
   .language-picker {
     position: fixed;
     top: 2vh;
@@ -242,11 +276,6 @@
     backdrop-filter: blur(10px);
   }
 
-  .language-picker select:focus-visible {
-    outline: 2px solid #fca311;
-    outline-offset: 3px;
-  }
-
   .language-picker option {
     background: #080f1b;
     color: #fff;
@@ -264,37 +293,7 @@
     border: 0;
   }
 
-  .response {
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-    min-height: 420px;
-    flex-direction: column;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background: rgb(0 0 0 / 75%);
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .response::-webkit-scrollbar {
-    display: none;
-  }
-
-  .hero {
-    position: relative;
-    display: flex;
-    min-height: 100vh;
-    min-height: 100dvh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  .hero__title {
+  .intro__title {
     position: relative;
     z-index: 2;
     margin: 0;
@@ -305,7 +304,7 @@
     line-height: 1;
   }
 
-  .hero__copy {
+  .intro__copy {
     position: absolute;
     z-index: 1;
     font-family: "Sora", sans-serif;
@@ -323,23 +322,15 @@
     gap: clamp(1rem, 2vw, 1.5rem);
   }
 
-  .carousel {
+  .textos {
     display: flex;
-    flex-direction: column-reverse;
-    min-height: 320px;
+    min-height: 25vh;
     align-items: center;
-    justify-content: space-evenly;
-    gap: 2rem;
-    padding: 3rem clamp(1.5rem, 8vw, 8rem);
-  }
-
-  .carousel__text {
-    max-width: 80vw;
-    margin: 0;
+    justify-content: center;
     font-family: "Righteous", sans-serif;
     font-size: 3vw;
+    padding: 10vh 10vw;
     text-align: center;
-    line-height: 1.7;
   }
 
   .site-footer {
@@ -361,7 +352,7 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .hero__title {
+    .intro__title {
       font-size: clamp(2.4rem, 7vw, 4rem);
     }
   }
@@ -373,7 +364,7 @@
       font-size: 0.8rem;
     }
 
-    .hero__title {
+    .intro__title {
       top: 5.5rem;
       font-size: clamp(2rem, 10vw, 3rem);
       letter-spacing: 0.05em;
@@ -384,22 +375,12 @@
       grid-template-columns: 1fr;
     }
 
-    .carousel {
+    .textos {
       min-height: auto;
       flex-direction: column;
       gap: 1.5rem;
       padding: 2rem 1rem 3rem;
       text-align: center;
-    }
-
-    .carousel__person {
-      width: min(60vw, 220px);
-    }
-  }
-
-  @media (max-height: 520px) {
-    .hero {
-      min-height: 520px;
     }
   }
 </style>

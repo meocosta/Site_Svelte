@@ -15,7 +15,7 @@
         max-width: 25vw;
         padding: 2vw;
         overflow: hidden;
-        border: 1px solid #003566;
+        border: 1px solid #fca311;
         border-radius: 1rem;
         background: #00000077;
         text-align: left;
@@ -27,7 +27,7 @@
 
     .card:hover {
         transform: translateY(-5px);
-        border-color: #003566;
+        border-color: #fca311;
     }
 
     .card__accent {
@@ -36,7 +36,7 @@
         height: 3px;
         margin-bottom: 1.1rem;
         border-radius: 999px;
-        background: #003566;
+        background: #fca311;
     }
 
     .card__title {

@@ -70,7 +70,5 @@
     display: inline-block;
     font-family: "Sora", sans-serif;
     white-space: pre-wrap;
-    color: #FCA311;
-    font-size: 2vw;
   }
 </style>
