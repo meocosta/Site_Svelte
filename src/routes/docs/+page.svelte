@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   const secoes = [
     { id: "astrocare", titulo: "AstroCare" },
     { id: "problem", titulo: "1. The problem" },
@@ -25,19 +25,40 @@
     { id: "metrics", titulo: "D. Monitoring — every metric" },
     { id: "timeline", titulo: "E. Simulated mission timeline" },
   ];
+
+  let texto: HTMLElement | null = null;
+
+  function irPara(id: string): void {
+    if (typeof document === "undefined") return;
+
+    const alvo = document.getElementById(id);
+    if (alvo && texto) {
+      texto.scrollTo({ top: alvo.offsetTop, behavior: "smooth" });
+    }
+  }
 </script>
 
+<div class="pagina">
+
 <section id="top">
-  <a href="/home">Home</a>
+  <a href="/">Home</a>
 </section>
 <div class="layout">
   <nav>
     {#each secoes as secao}
-      <a href="#{secao.id}">{secao.titulo}</a>
+      <a
+        href="#{secao.id}"
+        onclick={(event) => {
+          event.preventDefault();
+          irPara(secao.id);
+        }}
+      >
+        {secao.titulo}
+      </a>
     {/each}
   </nav>
 
-  <section id="text">
+  <section id="text" bind:this={texto}>
     <h2 id="astrocare">AstroCare</h2>
     <p>
       Autonomous clinical decision support and predictive health monitoring for
@@ -827,7 +848,7 @@
       Midazolam 5 mg. → PSIQ-04.
     </p>
     <p>
-      PSIQ-04 — Mandatory Post-Sedation Monitoring. section tain continuous
+      PSIQ-04 — Mandatory Post-Sedation Monitoring. Maintain continuous
       monitoring of SpO2, respiratory rate, blood pressure and continuous ECG,
       focusing on the QTc interval (risk of antipsychotic-induced arrhythmia in
       microgravity). → PSIQ-05.
@@ -933,8 +954,21 @@
     </p>
   </section>
 </div>
+</div>
 
 <style>
+  :global(body) {
+    margin: 0;
+  }
+
+  .pagina {
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
   #top {
     height: fit-content;
     background-color: rgba(0, 0, 0, 0.649);
@@ -945,39 +979,89 @@
     a {
       color: white;
       text-decoration: none;
-	  border-radius: 10px;
-	  padding: 10px 20px;
-	  border: solid white 2px;
+      border-radius: 10px;
+      padding: 10px 20px;
+      border: solid white 2px;
       font-family: "Sora", sans-serif;
     }
   }
 
   .layout {
+    flex: 1;
+    min-height: 0;
     display: flex;
     background-color: rgba(0, 0, 0, 0.649);
   }
 
   #text {
-    height: 100vh;
+    position: relative;
     overflow-y: auto;
     width: 75vw;
-	font-family: "Sora", sans-serif;
-	color: white;
-	padding-right: 2vw;
-
-	h2{
-
-	}
+    font-family: "Sora", sans-serif;
+    color: white;
+    padding-right: 2vw;
   }
 
   nav {
-    position: sticky;
     width: 25vw;
-    top: 0;
     align-self: flex-start;
-    display: flex;
     flex-direction: column;
-    height: 100vh;
+    display: flex;
+    gap: 3px;
+    padding: 2vh;
+    max-height: 100%;
     overflow-y: auto;
+    box-sizing: border-box;
+
+    a {
+      font-family: "Sora", sans-serif;
+      color: white;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 1024px) {
+    #text {
+      width: 65vw;
+    }
+
+    nav {
+      width: 35vw;
+    }
+  }
+
+  /* Celular */
+  @media (max-width: 768px) {
+    #top {
+      padding: 12px 16px;
+    }
+
+    .layout {
+      flex-direction: column;
+    }
+
+    nav {
+      width: 100%;
+      max-height: none;
+      align-self: stretch;
+      flex-direction: row;
+      flex-shrink: 0;
+      gap: 16px;
+      padding: 12px 16px;
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      a {
+        white-space: nowrap;
+      }
+    }
+
+    #text {
+      flex: 1;
+      min-height: 0;
+      width: 100%;
+      padding: 0 16px;
+      box-sizing: border-box;
+    }
   }
 </style>
