@@ -1,10 +1,11 @@
 <script lang="ts">
   const secoes = [
     { id: "astrocare", titulo: "AstroCare" },
+    { id: "different", titulo: "★ What makes AstroCare different" },
     { id: "problem", titulo: "1. The problem" },
     { id: "solution", titulo: "2. The solution" },
     { id: "monitoring", titulo: "2.1 Continuous monitoring" },
-    { id: "check-in", titulo: "2.2 Daily check-in and behavioral health" },
+    { id: "check-in", titulo: "2.2 Voice as a health sensor" },
     { id: "emergency-mode", titulo: "2.3 Hands-free voice emergency mode" },
     { id: "repository", titulo: "3. What is in this repository" },
     { id: "architecture", titulo: "Architecture" },
@@ -79,6 +80,151 @@
       validation by a physician.
     </p>
 
+    <h2 id="different">★ What makes AstroCare different</h2>
+    <p>
+      Most health tools for space assume a crew member who has free hands, time
+      to open an app and a doctor a few seconds away. On the way to Mars none of
+      that is true. AstroCare is built around one idea: in space, the most
+      natural and most reliable interface is the human voice. The voice is how
+      the crew asks for help, and the voice is also what reveals how the crew is
+      doing.
+    </p>
+
+    <h3>1 · An emergency starts with a sentence, not with a screen</h3>
+    <p>
+      In microgravity, giving CPR means anchoring your own body to the patient:
+      the Evetts–Russomano technique uses both hands and both feet, and a single
+      push sends rescuer and patient floating apart [21]. There is no hand left
+      to unlock a phone, find an app and tap through menus, and no time to do it
+      either.
+    </p>
+    <p>
+      With AstroCare the rescuer just says "Hey AstroCare, he collapsed and has
+      no pulse."
+    </p>
+    <p>
+      The app is always listening for its wake phrase, on any screen. Nobody
+      needs to open it or press anything.
+    </p>
+    <p>
+      An offline AI understands the description in the crew's own words, in
+      English or Portuguese, and answers aloud: "Understood: Cardiac arrest in
+      microgravity. Confirm?". The crew confirms with a word.
+    </p>
+    <p>
+      From then on AstroCare is a calm voice in the room: one instruction at a
+      time, read aloud, with a CPR metronome at 110/min and 2-minute cycle
+      timer. The crew answers "yes", "no", "done", "one"… and keeps both hands
+      on the patient.
+    </p>
+    <p>
+      It tells them where each drug is ("ACLS kit, red compartment"), deducts
+      what was used from the onboard pharmacy, and writes every step, answer and
+      dose into a care record for the flight surgeon. No one has to take notes
+      while saving a life.
+    </p>
+    <p>
+      It never improvises: every step comes from a validated protocol, the AI
+      only suggests and the crew always confirms. If the protocol has no next
+      step, it says so.
+    </p>
+
+    <h3>
+      2 · The daily journal becomes a voice check-in, and the voice becomes a
+      sensor
+    </h3>
+    <p>
+      Today, astronauts' psychological state is followed mainly through written
+      journals and questionnaires. NASA's own analysis of ISS journals showed
+      how much they reveal about isolation, conflict and morale [14], but
+      writing every day for two years is a burden, and people tend to
+      under-report how they feel.
+    </p>
+    <p>
+      AstroCare replaces the written journal with 30 seconds of speech: "Tell
+      AstroCare how your day was." Then it listens to how the astronaut speaks,
+      not only what they say:
+    </p>
+    <p>
+      Acoustic voice markers, analysed on board and offline with Praat: time
+      spent in pauses, mean pitch, pitch variation (monotony), loudness and
+      speech duration.
+    </p>
+    <p>
+      Language markers from the transcript: speech rate and the balance of
+      positive and negative words.
+    </p>
+    <p>
+      Self-report (mood, fatigue, stress, loneliness, sleep) and a 10-second
+      reaction test (PVT), the most sensitive marker of fatigue and sleep loss
+      [25].
+    </p>
+    <p>
+      Speech changes such as longer pauses, flatter and quieter voice, slower
+      speech and more negative language are among the best-documented markers of
+      low mood and depression [29]. AstroCare does not diagnose. It recognises
+      patterns over time and points them out early.
+    </p>
+
+    <h3>3 · Every astronaut is compared with themselves</h3>
+    <p>
+      Nothing is compared with a population average. Each value is compared
+      with that astronaut's own Earth baseline (median and MAD), smoothed over 7
+      days and corrected for what the whole crew is going through, so a CO₂
+      failure or a crew-wide bad week does not alarm anyone individually. A
+      behavioral alert needs at least 3 markers off-baseline for at least 5
+      days. One bad day never raises an alarm, but a quiet slide into exhaustion
+      or depression does not go unnoticed.
+    </p>
+
+    <h3>4 · The flight surgeon sees the change before it becomes a crisis</h3>
+    <p>
+      The ground report (PDF + JSON, English and Portuguese) shows, for each
+      astronaut:
+    </p>
+    <p>
+      which voice, language and self-report markers moved away from their Earth
+      baseline, and by how much;
+    </p>
+    <p>
+      the status of each day (normal · attention · alert) and for how long it
+      has persisted;
+    </p>
+    <p>
+      sleep, heart-rate variability, reaction time, radiation dose and
+      medications they reported.
+    </p>
+    <p>
+      In the demo, AST-03's daily check-ins drift away from their Earth baseline
+      over two weeks (sleep, mood, loneliness and journal markers). The app
+      flags "Behavioral pattern out of baseline for 14 days", marks AST-03 as
+      Needs care and the ground report shows which markers changed, days before
+      a crisis. Full transcripts are never sent: only the indicators, to protect
+      the crew's privacy.
+    </p>
+
+    <h3>5 · Built for a ship that is alone</h3>
+    <p>
+      Offline-first: classification, voice analysis, protocols, records and
+      reports all run on board. Earth is optional.
+    </p>
+    <p>
+      One system: crew health and spacecraft sensors (CO₂, O₂, pressure,
+      radiation) are read together, and the environment is checked before
+      blaming the body.
+    </p>
+    <p>
+      "AI observes, rules decide": AI only turns speech into data and suggests.
+      Every clinical action comes from published NASA guidance and the crew
+      always has the last word.
+    </p>
+    <p>
+      In one sentence: with AstroCare the crew does not need a screen, a free
+      hand or a link to Earth. They talk, and AstroCare listens: in an emergency
+      it guides them step by step, and every day it hears in their voice what
+      they may not say.
+    </p>
+
     <h2 id="problem">1. The problem</h2>
     <p>
       On missions to the Moon and Mars (NASA's Artemis program and beyond), a
@@ -118,7 +264,11 @@
       deterministic rule taken from published guidance, and the crew always
       confirms.
     </p>
-    <p>It combines three capabilities.</p>
+    <p>
+      It combines three capabilities. The most distinctive one is 2.2: the voice
+      itself as a health sensor, which watches behavioral and psychological
+      health without asking the crew to fill in questionnaires.
+    </p>
 
     <h2 id="monitoring">
       2.1 Continuous monitoring against a personal Earth baseline
@@ -152,14 +302,34 @@
     </p>
 
     <h2 id="check-in">
-      2.2 Daily check-in and behavioral health (data-back loop)
+      2.2 Voice as a health sensor: behavioral and psychological monitoring
+      (data-back loop)
     </h2>
     <p>
-      Short daily voice/video check-in: the astronaut speaks for under a minute.
-      The back end extracts voice features (speech rate, pauses, pitch
-      variation, loudness), text features (positive/negative word ratio,
-      sentiment) and self-reported mood, stress, fatigue, loneliness and sleep
-      quality.
+      Why it matters. Isolation, confinement, sleep loss and a 20-minute delay
+      to Earth make behavioral health one of NASA's top risks for Mars missions
+      (Risk of Adverse Cognitive or Behavioral Conditions and Psychiatric
+      Disorders). Astronauts tend to under-report how they feel. AstroCare
+      listens to how they speak, not only what they say, and compares it with
+      their own voice on Earth, so a slow drift (fatigue, low mood, withdrawal)
+      shows up days before it becomes a crisis.
+    </p>
+    <p>
+      Short daily voice/video check-in: the astronaut speaks for under a minute
+      (in the app: Start check-in, record, then the self-report sliders). The
+      recording is analysed on board, offline, with Praat (parselmouth) and the
+      result is shown at once against the personal baseline (e.g. "Time in
+      pauses 34 % · +1.2 SD"). The back end extracts voice features (speech
+      rate, pauses, pitch variation, loudness), text features (positive/negative
+      word ratio, sentiment) and self-reported mood, stress, fatigue, loneliness
+      and sleep quality. Medications the astronaut mentions are also captured
+      and listed in the ground report.
+    </p>
+    <p>
+      Reaction test (PVT): right after the check-in, a 5-trial Psychomotor
+      Vigilance Test measures reaction time and lapses in the browser and
+      compares them with the Earth baseline; PVT is the most sensitive marker of
+      fatigue and sleep loss (Basner &amp; Dinges, 2011).
     </p>
     <p>
       Robust comparison: metrics are compared with the personal Earth baseline
@@ -180,7 +350,13 @@
 
     <h2 id="emergency-mode">2.3 Hands-free voice emergency mode</h2>
     <p>
-      Activation: voice ("AstroCare… Emergency") or the red microphone button.
+      Activation, hands-free: the app is always listening for the wake phrase
+      "Hey AstroCare" (browser speech recognition, Chrome). Saying "Hey
+      AstroCare, he collapsed and has no pulse" on any screen opens emergency
+      mode and sends the description; yes / no / done / next / one, two, three
+      then press the matching buttons, so the rescuer keeps both hands on the
+      patient. Fallbacks: the large red SOS · EMERGENCY button on every screen,
+      the SOS and microphone buttons in the header, Tap and speak, or typing.
     </p>
     <p>
       Identifying the emergency: the astronaut describes it in their own words,
@@ -431,13 +607,21 @@
       Claude (Anthropic): research support and source collection; simulated data
       generator; translation of the protocol document (PT→EN) and PDFs;
       interactive prototypes (medical cards, avatar recolor); the mobile app
-      interface (app/, streamlit_app.py) built on the team's back end; website
-      with the iPhone frame; pitch script; video editing and motion graphics;
-      this documentation.
+      interface (app/, streamlit_app.py) built on the team's back end, applying
+      the team's Figma design, including the voice check-in screen, the PVT
+      reaction test and the "Hey AstroCare" hands-free wake word; English
+      display layer for the back end (astrocare/emergency/i18n.py); website with
+      the iPhone frame; pitch script; video editing and motion graphics; this
+      documentation.
     </p>
     <p>
       ChatGPT (OpenAI): logo and graphic assets (icons, planets, voice orb,
       background, crew illustrations).
+    </p>
+    <p>
+      Figma Make (Figma AI): generation of the app's visual design (screens,
+      palette, typography), used by the team as the design reference for the
+      final interface.
     </p>
     <p>
       Gemini (Google): drafting and structuring of the clinical protocol
@@ -450,10 +634,6 @@
       regression, scikit-learn, trained by the team); Vosk speech recognition;
       Whisper (transcription of the narration for video captions); Piper
       (synthetic assistant voice in the video).
-    </p>
-    <p>
-      ⚠ To confirm by the team before submission: exact AI use per member (e.g.
-      any AI assistance in the back-end code) and any other tools.
     </p>
     <p>
       Third-party assets: Lucide icons (ISC licence); Inter and Newsreader fonts
@@ -600,47 +780,96 @@
       28. NASA Space Apps Challenge — Judging &amp; Awards Guide.
       https://www.spaceappschallenge.org/resources/judging-awards-guide
     </p>
+    <p>
+      29. Cummins N., Scherer S., Krajewski J., Schnieder S., Epps J., Quatieri
+      T.F. A review of depression and suicide risk assessment using speech
+      analysis. Speech Communication 2015;71:10–49.
+    </p>
+
+    <h2>Appendix — full technical detail</h2>
 
     <h2 id="app-screens">A. Screens of the app</h2>
     <p>
-      Crew (home): header with mission day and time; hero arc placing each
-      astronaut from Needs care to Thriving; serif headline summarising the crew
-      state; short explanation; list of active alerts (crew + ship); one card
-      per astronaut with Readiness index on a baseline range bar, role, current
-      module, HR, SpO₂, respiration and activity. Interactions: demo scenario
-      menu; "Hey AstroCare" emergency button; alerts expand to show detail,
-      recommended action and the rule used; each astronaut opens the detail
-      screen.
+      Visual design: dark navy clinical theme from the team's Figma design (cyan
+      accent, Manrope + DM Mono), AstroCare logo in the header, fixed bottom bar
+      (Home · Readiness · Crew · Records) and a large red SOS · EMERGENCY button
+      above it on every screen. A small pill under the header shows VOICE ON ·
+      SAY "HEY ASTROCARE".
     </p>
     <p>
-      Astronaut detail: Readiness; personal alerts; smart-shirt vitals (SpO₂,
-      heart rate, respiration, HRV + blood pressure, sleep) each on a range bar
-      against the personal Earth baseline; mission radiation dose vs the 600 mSv
-      career limit; hemoglobin vs baseline; behavioral health from the daily
-      journal with the metrics out of baseline. Interactions: download the
-      ground report (PDF) for the flight surgeon.
+      Welcome: AstroCare logo, mission day, "Welcome back, Commander",
+      offline-ready status. Interactions: choose the active crew profile
+      (AST-01…04); Enter health workspace; Emergency access.
     </p>
     <p>
-      Ship: for each module (Habitation, Laboratory, Storm shelter): cabin CO₂
-      vs the 3 mmHg limit, radiation dose rate vs the module's normal rate, O₂
-      partial pressure, temperature, pressure and humidity; module alerts.
-      Interactions: demo scenario menu.
+      Home: greeting; Readiness ring (0–100, personal index vs Earth baseline)
+      with verdict; Daily check-in card (streak, duration); active alerts (crew
+      + ship) that expand to detail, recommended action and rule; live
+      environment tiles (ppCO₂, radiation, heart rate, SpO₂). Interactions: View
+      readiness analysis; Start check-in; demo scenario menu.
     </p>
     <p>
-      Records: emergency care sessions (protocol, patient, status, activation,
-      time); medical inventory alerts (unavailable, expired, low stock, expiring
-      soon) and stock list. Interactions: download each care record (PDF).
+      Voice check-in: recorder; offline voice analysis (speech duration, time in
+      pauses, mean pitch, pitch variation, loudness) each compared with the
+      personal baseline in SD; self-report sliders (mood, fatigue, stress,
+      loneliness, sleep quality). Interactions: record, save, continue to the
+      reaction test.
     </p>
     <p>
-      Emergency: offline session header; voice orb; current question or protocol
-      step (node ID + title + instruction); mandatory alerts highlighted.
-      Interactions: tap-and-speak (speech recognition) or type; YES/NO; patient
-      AST-01…04; units used 0–3; Done; voice read-out on/off; "End session"
-      (asks for confirmation).
+      Reaction test (PVT): 5 trials, random 1.5–4 s delays; mean reaction time,
+      lapses (&gt; 500 ms) and difference from the Earth baseline; false starts
+      detected. Interactions: tap the target; repeat; Complete and see my
+      readiness.
     </p>
     <p>
-      Bottom bar: Crew · Ship · Records + red microphone (emergency) always
-      reachable.
+      Readiness: large ring; four factors with bars: Recovery (sleep, HRV),
+      Cognitive (check-in + PVT), Physiology (vitals, blood), Environment
+      (cabin, radiation); what is pulling the score down.
+    </p>
+    <p>
+      Crew: one card per astronaut: codename, ID, role, module, HR, SpO₂,
+      readiness and status. Interactions: open each astronaut; Open ship
+      sensors.
+    </p>
+    <p>
+      Astronaut detail: Readiness ring; personal alerts; smart-shirt vitals
+      (SpO₂, HR, respiration, HRV, sleep, blood pressure) vs baseline; mission
+      radiation dose vs the 600 mSv career limit; hemoglobin and lymphocytes vs
+      baseline; behavioral health status from the daily journal. Interactions:
+      download the ground report (PDF) for the flight surgeon.
+    </p>
+    <p>
+      Ship sensors: per module (Habitation, Laboratory, Storm shelter): ppCO₂ vs
+      NASA-STD-3001 limit, radiation vs module normal, ppO₂, temperature,
+      pressure, humidity; module alerts. Interactions: demo scenario menu.
+    </p>
+    <p>
+      Records: timeline: today's check-in, wearable sync, every emergency care
+      session with status and PDF. Medications: pharmacy alerts (unavailable,
+      expired, low stock, expiring soon) and stock with locations.
+      Interactions: download each care record (PDF).
+    </p>
+    <p>
+      Emergency: select — "Select the emergency": Cardiac arrest, SANS,
+      Behavioral crisis; voice command box. Interactions: tap a protocol, Tap
+      and speak, type, or just talk ("Hey AstroCare…").
+    </p>
+    <p>
+      Emergency: voice triage — voice orb and the back-end dialogue
+      ("Understood: Cardiac arrest… Confirm?", "Who is the patient?") read
+      aloud. Interactions: Yes / No, patient buttons, voice.
+    </p>
+    <p>
+      Emergency: protocol — red progress bar; node ID and title; one big
+      instruction; mandatory alerts highlighted; CPR metronome 110/min with
+      2-minute cycle timer on CPR steps; medication supply with stock and
+      location. Interactions: Done / Yes / No / units 0–3 by tap or voice;
+      read-aloud toggle; End session.
+    </p>
+    <p>
+      Incident summary: care record number, protocol, patient, nodes followed,
+      medications recorded, activation (voice/manual), status. Interactions:
+      open the care record (PDF); back to home.
     </p>
 
     <h2 id="dialogue-rules">B. Emergency dialogue rules</h2>
@@ -1014,9 +1243,16 @@
     display: flex;
     gap: 3px;
     padding: 2vh;
+    gap: 2vh;
     max-height: 100%;
     overflow-y: auto;
     box-sizing: border-box;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     a {
       font-family: "Sora", sans-serif;
