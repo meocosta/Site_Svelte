@@ -967,6 +967,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    max-width: 100%;
   }
 
   #top {
@@ -991,6 +992,8 @@
     min-height: 0;
     display: flex;
     background-color: rgba(0, 0, 0, 0.649);
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   #text {
@@ -1000,6 +1003,8 @@
     font-family: "Sora", sans-serif;
     color: white;
     padding-right: 2vw;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   nav {
@@ -1038,6 +1043,7 @@
 
     .layout {
       flex-direction: column;
+    
     }
 
     nav {
